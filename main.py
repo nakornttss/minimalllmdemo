@@ -19,15 +19,6 @@ collection_name = "thai_text_embeddings"
 # Set the OpenAI API key from the config file
 openai.api_key = config.OPENAI_API_KEY
 
-# Function to select CPU or GPU based on config
-def select_cpu_or_gpu():
-    if config.USE_GPU:
-        print("Using GPU for inference.")
-        # For OpenAI, there's no specific option to explicitly choose GPU, but this can apply to local models.
-        # Example: torch.device('cuda') for PyTorch-based models if you're running locally.
-    else:
-        print("Using CPU for inference.")
-
 # Function to get a response from OpenAI Chat Completion API
 def get_chat_completion_response(user_question, context):
     """
@@ -122,9 +113,6 @@ def webhook():
 # Start the application
 if __name__ == '__main__':
     reset_database()
-
-    # Select CPU or GPU based on the configuration
-    select_cpu_or_gpu()
 
     # Initialize the database and collection
     collection = initialize_database()
