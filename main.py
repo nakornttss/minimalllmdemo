@@ -31,8 +31,8 @@ def get_chat_completion_response(user_question, context):
     }
     messages = [
         {"role": "system", "content": "คุณคือพนักงานของบริษัท ที.ที.ซอฟแวร์ โซลูชั่น จำกัด (T.T.Software Solution Co.,Ltd). กรุณาตอบคำถามเกี่ยวกับบริษัทฯ เป็นภาษาไทย โดยอ้างอิงจาก รายละเอียดที่เกี่ยวข้อง. คุณเป็นผู้ชาย."},
-        {"role": "user", "content": user_question},
-        {"role": "assistant", "content": f"รายละเอียดที่เกี่ยวข้อง: {context}"}
+        {"role": "system", "content": f"รายละเอียดที่เกี่ยวข้อง: {context}"},
+        {"role": "user", "content": user_question},        
     ]
 
     data = {
